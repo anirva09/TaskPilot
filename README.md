@@ -1,173 +1,443 @@
-# Zelvo
+# TaskPilot
 
-**Zelvo** is a modern, full-stack task management application designed to streamline productivity for individuals. Built with a powerful Spring Boot backend and an elegant React frontend, Zelvo combines robust functionality with an intuitive user experience to help you organize, track, and manage tasks efficiently.
+**TaskPilot** is a modern, full-stack task management platform designed to help individuals organize, track, and manage their work efficiently. It provides secure authentication, task management, productivity analytics, calendar scheduling, and personalized user settings through a responsive web interface.
+
+Built with **React, TypeScript, Vite, Java, Spring Boot, PostgreSQL, and JWT-based security**, TaskPilot follows a layered architecture designed for maintainability, scalability, and clean separation of concerns.
 
 ---
 
 ## 🚀 Key Features
 
-### 🔐 **Authentication & Security**
-- JWT-based authentication with secure token management
-- Role-based access control and user authorization
-- Secure password hashing with BCrypt encryption
-- OAuth2 integration support
-- Comprehensive session management
+### 🔐 Authentication & Security
 
-### 📋 **Task Management**
-- Full CRUD operations on tasks (Create, Read, Update, Delete)
-- Advanced filtering and sorting capabilities:
-  - Filter by status (Not Started, In Progress, Completed)
-  - Sort by priority (Low, Medium, High)
-  - Date-based filtering and sorting
-  - Real-time text search across titles and descriptions
-- Bulk task operations for improved efficiency
-- Task categorization system
-- Due date tracking and notifications
+* JWT-based authentication
+* Secure user registration and login
+* Role-based authorization
+* BCrypt password hashing
+* Protected REST APIs
+* Secure session and token management
+* Spring Security integration
 
-### 🎨 **User Interface & Experience**
-- Modern, responsive design optimized for all devices
-- Dual theme support (Light/Dark mode) with smooth transitions
-- Visual design with customizable accents
-- Intuitive navigation with collapsible sidebar
-- Dashboard with comprehensive task overview and analytics
-- Calendar integration for task scheduling and deadline management
+### 📋 Task Management
 
-### ⚙️ **User Preferences & Settings**
-- Comprehensive settings page with organized sections:
-  - **Profile Management**: Picture upload, personal information editing
-  - **Theme Preferences**: Individual Light/Dark mode selection toggles
-  - **Security Settings**: Password management with strength indicators
-  - **Personal Information**: Name and contact details management
-- Real-time preference saving and synchronization
+* Create, read, update, and delete tasks
+* Task status management:
 
-### 📊 **Dashboard & Analytics**
-- Interactive dashboard with task statistics and insights
-- Recent task activity tracking
-- Calendar widget for quick date navigation
-- Task distribution charts and progress indicators
-- Quick-access task creation and management tools
+  * Not Started
+  * In Progress
+  * Completed
+* Priority management:
 
-### 📅 **Calendar Integration**
-- Dedicated calendar page for task scheduling
-- Month/week/day view options
-- Task deadline visualization
-- Drag-and-drop task scheduling capabilities
+  * Low
+  * Medium
+  * High
+* Due date tracking
+* Task categorization
+* Search tasks by title and description
+* Filter tasks by status and priority
+* Sort tasks by priority and date
+* Bulk task operations
+
+### 📊 Dashboard & Analytics
+
+* Centralized productivity dashboard
+* Task statistics and summaries
+* Task distribution visualization
+* Progress indicators
+* Recent task activity
+* Quick task creation
+* Productivity insights
+
+### 📅 Calendar
+
+* Dedicated task calendar
+* Month, week, and day views
+* Task deadline visualization
+* Schedule management
+* Drag-and-drop task scheduling
+
+### 🎨 User Interface
+
+* Responsive React interface
+* Light and dark themes
+* Customizable visual preferences
+* Collapsible navigation sidebar
+* Responsive layouts for different screen sizes
+* Reusable UI components
+* Smooth client-side navigation
+
+### ⚙️ User Settings
+
+* Profile management
+* Personal information editing
+* Profile picture management
+* Theme preferences
+* Password management
+* Password strength validation
+* User preference synchronization
 
 ---
 
 ## 🛠️ Technology Stack
 
-### **Frontend**
-- **Framework**: React 18 with TypeScript
-- **Build Tool**: Vite for fast development and optimized builds
-- **Styling**: CSS3 with custom themes and responsive design
-- **State Management**: React Context API with custom hooks
-- **Routing**: React Router for client-side navigation
-- **Icons**: Lucide React for consistent iconography
+### Frontend
 
-### **Backend**
-- **Framework**: Spring Boot 3.x with Java 17+
-- **Security**: Spring Security with JWT authentication
-- **Database**: PostgreSQL with Spring Data JPA
-- **Architecture**: RESTful API design with proper HTTP methods
-- **Build Tool**: Maven for dependency management
+| Technology    | Purpose                       |
+| ------------- | ----------------------------- |
+| React 18      | UI development                |
+| TypeScript    | Type-safe development         |
+| Vite          | Frontend build tool           |
+| React Router  | Client-side routing           |
+| CSS3          | Styling and responsive design |
+| Lucide React  | UI icons                      |
+| React Context | Application state management  |
 
-### **Development & Deployment**
-- **Database ORM**: Prisma for database schema management
-- **Version Control**: Git with feature branch workflow
-- **Development**: Hot reload and development servers
-- **Production Ready**: Optimized builds and deployment configurations
+### Backend
+
+| Technology      | Purpose                          |
+| --------------- | -------------------------------- |
+| Java 17+        | Backend development              |
+| Spring Boot 3.x | REST API framework               |
+| Spring Security | Authentication and authorization |
+| JWT             | Stateless authentication         |
+| Spring Data JPA | Database access                  |
+| PostgreSQL      | Relational database              |
+| Maven           | Dependency and build management  |
+
+### Development
+
+* Git & GitHub
+* RESTful API architecture
+* Layered backend architecture
+* DTO-based API communication
+* Exception handling
+* Unit and integration testing
+* Feature-based Git workflow
 
 ---
 
-## 📁 Project Architecture
+## 🏗️ Architecture
 
+TaskPilot follows a layered architecture to separate API handling, business logic, data access, and security responsibilities.
+
+```text
+                    ┌─────────────────────┐
+                    │      React UI       │
+                    │ TypeScript + Vite   │
+                    └──────────┬──────────┘
+                               │
+                               │ REST API
+                               ▼
+                    ┌─────────────────────┐
+                    │    Controllers      │
+                    │   REST Endpoints    │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │      Services       │
+                    │   Business Logic    │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │    Repositories     │
+                    │   Data Access       │
+                    └──────────┬──────────┘
+                               │
+                               ▼
+                    ┌─────────────────────┐
+                    │     PostgreSQL      │
+                    │      Database       │
+                    └─────────────────────┘
 ```
-zelvo/
-├── backend/                    # Spring Boot Application
-│   ├── src/main/java/com/taskflow/backend/
-│   │   ├── config/            # Configuration classes
-│   │   ├── controller/        # REST API endpoints
-│   │   ├── dto/              # Data Transfer Objects
-│   │   ├── exception/        # Custom exception handling
-│   │   ├── mapper/           # Entity-DTO mappers
-│   │   ├── model/            # JPA entities
-│   │   ├── repository/       # Data access layer
-│   │   ├── security/         # Security configuration & JWT
-│   │   └── service/          # Business logic layer
-│   ├── src/main/resources/   # Application properties & configs
-│   ├── src/test/            # Unit and integration tests
-│   └── pom.xml              # Maven dependencies
+
+Authentication and authorization are handled through **Spring Security and JWT**.
+
+---
+
+## 📁 Project Structure
+
+```text
+TaskPilot/
 │
-├── frontend/                  # React Application
+├── backend/
 │   ├── src/
-│   │   ├── components/       # Reusable React components
-│   │   │   ├── navigation/   # Sidebar and navigation
-│   │   │   ├── cards/        # Dashboard widgets
-│   │   │   ├── task/         # Task-related components
-│   │   │   └── ui/           # Common UI components
-│   │   ├── context/          # React Context providers
-│   │   ├── hooks/            # Custom React hooks
-│   │   ├── pages/            # Main application pages
-│   │   ├── services/         # API service functions
-│   │   ├── styles/           # CSS stylesheets
-│   │   ├── types/            # TypeScript type definitions
-│   │   └── utils/            # Utility functions
-│   ├── public/               # Static assets
-│   ├── prisma/              # Database schema and migrations
-│   └── package.json         # npm dependencies
+│   │   ├── main/
+│   │   │   ├── java/
+│   │   │   │   └── com/taskpilot/
+│   │   │   │       ├── config/
+│   │   │   │       ├── controller/
+│   │   │   │       ├── dto/
+│   │   │   │       ├── exception/
+│   │   │   │       ├── mapper/
+│   │   │   │       ├── model/
+│   │   │   │       ├── repository/
+│   │   │   │       ├── security/
+│   │   │   │       └── service/
+│   │   │   │
+│   │   │   └── resources/
+│   │   │       └── application.properties
+│   │   │
+│   │   └── test/
+│   │
+│   └── pom.xml
 │
-├── docs/                     # Documentation and assets
-│   ├── imgs/                # Application screenshots
-│   └── README.md            # Project documentation
+├── frontend/
+│   ├── src/
+│   │   ├── components/
+│   │   ├── context/
+│   │   ├── hooks/
+│   │   ├── pages/
+│   │   ├── services/
+│   │   ├── styles/
+│   │   ├── types/
+│   │   └── utils/
+│   │
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.ts
 │
-└── README.md                # Main project readme
+├── docs/
+│   └── imgs/
+│
+└── README.md
 ```
 
 ---
 
-## 🚀 Getting Started
+## ⚙️ Getting Started
 
-### **Prerequisites**
-- Node.js 18+ and npm
-- Java 17+ and Maven
-- PostgreSQL database
+### Prerequisites
 
-### **Backend Setup**
+Make sure the following are installed:
+
+* Node.js 18+
+* npm
+* Java 17+
+* Maven
+* PostgreSQL
+* Git
+
+---
+
+### 1. Clone the Repository
+
+```bash
+git clone https://github.com/anirva09/TaskPilot.git
+cd TaskPilot
+```
+
+---
+
+### 2. Configure PostgreSQL
+
+Create a PostgreSQL database for TaskPilot.
+
+Example:
+
+```sql
+CREATE DATABASE taskpilot;
+```
+
+Configure the database connection in:
+
+```text
+backend/src/main/resources/application.properties
+```
+
+Example:
+
+```properties
+spring.datasource.url=jdbc:postgresql://localhost:5432/taskpilot
+spring.datasource.username=YOUR_USERNAME
+spring.datasource.password=YOUR_PASSWORD
+```
+
+---
+
+### 3. Start the Backend
+
 ```bash
 cd backend
 mvn clean install
 mvn spring-boot:run
 ```
 
-### **Frontend Setup**
+The Spring Boot API will start on the configured port.
+
+---
+
+### 4. Start the Frontend
+
+Open another terminal:
+
 ```bash
 cd frontend
 npm install
 npm run dev
 ```
 
-### **Database Setup**
-```bash
-cd frontend
-npx prisma migrate dev
-npx prisma generate
-```
+Vite will start the frontend development server.
 
 ---
 
-## 🔮 Possible Future Enhancements
+## 🔑 Authentication Flow
 
-- **Team Collaboration**: Multi-user workspaces and task sharing
-- **Advanced Analytics**: Detailed productivity insights and reporting
-- **Mobile Applications**: Native iOS and Android apps
-- **Integration APIs**: Third-party service integrations (Slack, Trello, etc.)
-- **Advanced Notifications**: Email and push notification system
-- **Export Features**: PDF and Excel task export capabilities
+TaskPilot uses JWT-based authentication.
+
+```text
+User
+ │
+ │ Login
+ ▼
+React Frontend
+ │
+ │ POST /api/auth/login
+ ▼
+Spring Security
+ │
+ │ Validate credentials
+ ▼
+Authentication Service
+ │
+ │ Generate JWT
+ ▼
+React Frontend
+ │
+ │ Store authentication state
+ ▼
+Protected API Requests
+ │
+ │ Authorization: Bearer <token>
+ ▼
+Spring Security Filter
+ │
+ ▼
+Protected Controller
+```
+
+This allows the backend to remain stateless while protecting authenticated API endpoints.
+
+---
+
+## 🔌 REST API
+
+The backend exposes RESTful endpoints for authentication and task management.
+
+Example endpoint structure:
+
+```text
+/api/auth
+    POST   /register
+    POST   /login
+
+/api/tasks
+    GET    /
+    GET    /{id}
+    POST   /
+    PUT    /{id}
+    DELETE /{id}
+
+/api/users
+    GET    /profile
+    PUT    /profile
+```
+
+The API follows standard HTTP methods and uses DTOs to separate API contracts from persistence models.
+
+---
+
+## 🧪 Testing
+
+Backend tests can be executed using Maven:
+
+```bash
+cd backend
+mvn test
+```
+
+The project is structured to support:
+
+* Unit testing
+* Service-layer testing
+* Controller testing
+* Repository testing
+* Integration testing
+
+---
+
+## 🔄 Development Workflow
+
+TaskPilot follows a feature-oriented Git workflow.
+
+```text
+main
+ │
+ ├── feature/task-management
+ │
+ ├── feature/authentication
+ │
+ ├── feature/dashboard
+ │
+ └── feature/calendar
+```
+
+Typical workflow:
+
+```bash
+git checkout -b feature/task-management
+
+git add .
+
+git commit -m "Add task management functionality"
+
+git push origin feature/task-management
+```
+
+Changes can then be reviewed before being merged into `main`.
+
+---
+
+## 🔮 Future Enhancements
+
+Planned improvements include:
+
+* 👥 Team workspaces
+* 🤝 Collaborative task management
+* 📈 Advanced productivity analytics
+* 🔔 Email and push notifications
+* 🔗 Third-party integrations
+* 📱 Mobile applications
+* 📤 PDF and Excel exports
+* 🔄 Recurring tasks
+* 💬 Task comments
+* 📎 File attachments
+* 🏷️ Advanced labels and tagging
+* 🤖 AI-assisted task organization
+
+---
+
+## 📌 Project Goals
+
+TaskPilot was developed to demonstrate practical experience with:
+
+* Full-stack application development
+* React and TypeScript
+* Java and Spring Boot
+* REST API development
+* JWT authentication
+* Spring Security
+* PostgreSQL
+* JPA/Hibernate
+* Layered architecture
+* Frontend state management
+* API integration
+* Testing
+* Git-based development workflows
 
 ---
 
 ## 📄 License
 
-This project is licensed under the MIT License.
-
+This
