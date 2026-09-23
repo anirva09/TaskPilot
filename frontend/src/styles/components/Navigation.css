@@ -1,0 +1,849 @@
+/* TASKFLOW Navigation Styles - Large White with Black Text */
+.taskflow-nav {
+  background: #dbceb6;
+  border-bottom: 2px solid #000000;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  padding: 0;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  height: clamp(70px, 10vw + 60px, 160px);
+}
+
+.taskflow-header {
+  display: flex;
+  justify-content: center !important;
+  align-items: flex-end;
+  width: 100%;
+  padding: 0 !important;
+  height: 100%;
+}
+
+.taskflow-logo {
+  text-decoration: none;
+  display: flex;
+  align-items: flex-end;
+  gap: 0;
+  width: 100%;
+  justify-content: center;
+  height: 100%;
+}
+
+.logo-container {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  width: 100%;
+  justify-content: center;
+  height: 100%;
+}
+
+.main-title {
+  display: flex;
+  white-space: nowrap;
+  top: -7px;
+  align-items: flex-end;
+  gap: 0.7rem;
+  width: 100%;
+  justify-content: space-evenly;
+  padding: 0 1rem;
+  line-height: 0.6;
+  margin: 0;
+  height: 100%;
+  position: relative;
+  bottom: 0;
+}
+
+.taskflow-logo .letter {
+  flex: unset;
+  font-family: 'Khand', 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(2.5rem, 11vw, 11rem);
+  font-weight: 900;
+  color: #302b26;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  line-height: .5;
+  flex: 1;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  vertical-align: bottom;
+}
+
+/* Remove dot styles since dots are removed */
+.taskflow-logo .dot {
+  display: none;
+}
+
+.subtitle-overlay {
+  position: absolute;
+  top: 115% !important;
+  left: 50%;            /* Center horizontally */
+  transform: translate(-50%, -50%);
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: clamp(0.6rem, 1.2vw + 0.2rem, 1rem);
+  font-weight: 500;
+  color: #45ac01;
+  text-align: center;
+  text-transform: uppercase;
+  white-space: nowrap;
+  pointer-events: none;
+  z-index: 15;
+  text-shadow:
+    0 0 8px #b9dbb1,
+    0 0 15px #82cc79,
+    0 0 25px #b6f19f;
+  padding: 0;
+  display: flex;
+  justify-content: center; /* Center letters group */
+  gap: 0.35rem;
+}
+
+.subtitle-letter {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1.75rem;
+  font-weight: 600;
+  color: #56c921;
+  text-transform: uppercase;
+  text-shadow:
+    0 0 8px #8fff80,
+    0 0 15px #9dff64,
+    0 0 25px #ff9100;
+}
+
+.subtitle-space {
+  width: 2rem;
+}
+
+.auth-controls {
+  display: flex;
+  align-items: center;
+  position: absolute !important;
+  right: 60rem !important;
+  top: 11.5rem !important;
+  margin-left: 0 !important;
+}
+
+.login-link {
+  /* ...existing styles... */
+  border: 2px solid rgba(83, 79, 79, 0.836);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.10);
+  color: #e6e0dc;
+  padding: 0.5rem 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  height: 2.5rem;
+}
+
+.login-link:hover {
+  /* ...existing hover styles... */
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.16);
+  color: #f5f1ef;
+  border-color: rgba(255, 255, 255, 0.16);
+  transform: translateY(-2px);
+}
+
+.login-link:active {
+  transform: translateY(0);
+  color: #12c456;
+}
+
+.user-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: absolute !important;
+  right: 2rem !important;
+  top: 1rem !important;
+  margin-left: 0 !important;
+}
+
+.nav-link {
+  color: #333333;
+  text-decoration: none;
+  padding: 0.8rem 1.5rem;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  background: #f8f8f8;
+}
+
+.nav-link:hover {
+  color: #000000;
+  border-color: #000000;
+  background: #e8e8e8;
+}
+
+.logout-button {
+  background: #f8f8f8;
+  border: 1px solid #cccccc;
+  cursor: pointer;
+  font-size: inherit;
+  font-family: inherit;
+}
+
+/* Add body padding to account for fixed navbar */
+body {
+  padding-top: clamp(70px, 10vw + 60px, 160px);
+}
+
+/* Responsive adjustments */
+@media (min-width: 1600px) {
+  .taskflow-logo .letter {
+    font-size: 12rem;
+  
+  }
+
+  .main-title {
+    gap: 0.03rem;
+    padding: 1 1rem;
+  }
+
+  .subtitle-overlay {
+    font-size: 1.2rem;
+  }
+
+  .subtitle-letter {
+    font-size: 1.2rem !important; /* Use !important if you want to override media queries for testing */
+    font-weight: 500;
+  }
+
+  .taskflow-nav {
+    height: 180px;
+  }
+
+  body {
+    padding-top: 180px;
+  }
+}
+
+@media (max-width: 1400px) {
+  .taskflow-logo .letter {
+    font-size: 12rem;
+  }
+
+  .subtitle-overlay {
+    font-size: 0.9rem;
+  }
+
+  .subtitle-letter {
+    font-size: 1.75rem !important; /* Use !important if you want to override media queries for testing */
+    font-weight: 400;
+  }
+}
+
+@media (max-width: 1200px) {
+  .taskflow-logo .letter {
+    font-size: 10rem;
+  }
+
+  .main-title {
+    gap: 0.3rem;
+    padding: 0 2rem;
+  }
+
+  .taskflow-nav {
+    height: 120px;
+  }
+
+  body {
+    padding-top: 120px;
+  }
+
+  .subtitle-overlay {
+    font-size: 0.8rem;
+  }
+  .subtitle-letter {
+    font-size: 1.75rem !important; /* Use !important if you want to override media queries for testing */
+    font-weight: 500;
+  }
+}
+
+@media (max-width: 768px) {
+  .taskflow-nav {
+    height: 80px;
+  }
+
+  .taskflow-logo .letter {
+    font-size: 8rem;
+  }
+
+  .main-title {
+    gap: 0.2rem;
+    padding: 0 1rem;
+  }
+
+  .subtitle-overlay {
+    font-size: 1.5rem;
+  }
+
+  .subtitle-letter {
+    font-size: 1.75rem !important; /* Use !important if you want to override media queries for testing */
+    font-weight: 500;
+  }
+
+  .user-controls {
+    gap: 0.5rem;
+    right: 1rem;
+  }
+
+  .auth-controls {
+    right: 1rem;
+    top: 0.5rem;
+  }
+
+  .login-link {
+    font-size: 0.8rem;
+  }
+
+  body {
+    padding-top: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  .taskflow-nav {
+    height: 70px;
+  }
+
+  .taskflow-logo .letter {
+    font-size: 6rem;
+  }
+
+  .main-title {
+    gap: 0.05rem;
+    padding: 0 0.5rem;
+  }
+
+  .subtitle-overlay {
+    font-size: 0.4rem;
+  }
+
+  .subtitle-letter {
+    font-size: 1.75rem !important; /* Use !important if you want to override media queries for testing */
+    font-weight: 500;
+  }
+
+  .user-controls {
+    gap: 0.3rem;
+    right: 0.5rem;
+  }
+
+  .auth-controls {
+    right: 0.5rem;
+    top: 0.5rem;
+  }
+
+  .login-link {
+    font-size: 0.7rem;
+  }
+
+  body {
+    padding-top: 70px;
+  }
+}
+
+.dropdown-trigger {
+  cursor: pointer;
+  background: none;
+  border: none;
+  outline: none;
+  font: inherit;
+  padding: 0 !important;
+}
+
+.login-dropdown {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  right: 0;
+  min-width: 160px;
+  background: linear-gradient(135deg, #232323 60%, #353a4a 100%);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 8px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
+  z-index: 1001;
+  display: flex;
+  flex-direction: column;
+  padding: 0.5rem 0;
+}
+
+.dropdown-item {
+  color: #e6e0dc;
+  padding: 0.7rem 1.2rem;
+  text-decoration: none;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 1rem;
+  transition: background 0.2s, color 0.2s;
+  border: none;
+  background: none;
+  text-align: left;
+  cursor: pointer;
+}
+
+.dropdown-item:hover {
+  background: #353a4a;
+  color: #fff;
+}
+
+/* Add a container class for left alignment and max-width */
+.container {
+  max-width: 1200px;
+  margin: 0 auto 0 0; /* Align left */
+  width: 100%;
+  padding-left: 2rem;
+  padding-right: 2rem;
+  display: flex;
+  align-items: flex-end;
+  height: 100%;
+}
+
+/* Update flex containers to left align */
+.taskflow-header,
+.taskflow-logo,
+.logo-container,
+.main-title {
+  justify-content: flex-start !important;
+}
+
+/* Smaller profile/logout links */
+.user-controls .nav-link {
+  font-size: 0.75rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+}
+
+.user-controls .logout-button {
+  padding: 0.4rem 0.8rem;
+}
+
+/* Neon tagline style buttons */
+.user-controls .nav-link,
+.user-controls .logout-button {
+  background: transparent;
+  border: 1px solid #e79a0a;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-size: 0.65rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #e79a0a;
+  letter-spacing: 0.06em;
+  padding: 0.15rem 0.45rem;
+  text-shadow:
+    0 0 8px #e79a0a,
+    0 0 15px #ffae4d,
+    0 0 25px #ff9100;
+  transition: opacity 0.2s ease;
+}
+
+.user-controls .nav-link:hover,
+.user-controls .logout-button:hover {
+  opacity: 0.8;
+  cursor: pointer;
+  border-color: #e68b4f;
+}
+
+/* -------------------------------------------------- */
+/* Responsive Enhancements – placed at the bottom so   */
+/* they override earlier static rules                 */
+/* -------------------------------------------------- */
+
+/* Scale the navbar height with the viewport */
+.taskflow-nav {
+  height: clamp(70px, 10vw + 60px, 160px);
+}
+
+/* Ensure body padding matches the dynamic navbar height */
+body {
+  padding-top: clamp(70px, 10vw + 60px, 160px);
+}
+
+/* Flexible layout ‑ keep logo on the left and controls on the right */
+.taskflow-header {
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+/* Let the header stretch full-width while keeping original left alignment rules */
+.taskflow-header.container {
+  width: 100%;
+}
+
+/* Remove absolute positioning so the controls participate in the flex layout */
+.auth-controls,
+.user-controls {
+  position: static !important;
+  right: auto !important;
+  top: auto !important;
+  margin-left: auto;
+}
+
+/* Scale logo letters so they always fit within the viewport */
+.taskflow-logo .letter {
+  font-size: clamp(2.5rem, 11vw, 11rem);
+}
+
+/* Make the tagline scale as well */
+.subtitle-overlay {
+  top: 100%;
+  font-size: clamp(0.6rem, 1.2vw + 0.2rem, 1rem);
+}
+
+/* Adjust dropdown placement now that auth-controls is static */
+.login-dropdown {
+  top: calc(100% + 0.5rem);
+  right: 0;
+}
+
+/* Ensure the dropdown trigger has a sensible hit-area on touch devices */
+.dropdown-trigger {
+  padding: 0 !important;
+}
+
+/* Reduce horizontal gap between huge letters on very small screens */
+@media (max-width: 480px) {
+  .main-title {
+    gap: 0.05rem;
+  }
+}
+
+/* -------------------------------------------------- */
+
+/* ------------------------------ */
+/* Final Overrides                */
+/* ------------------------------ */
+
+/* Keep header centered even after earlier declarations */
+.taskflow-header {
+  justify-content: center !important;
+  padding: 0 !important;
+}
+
+/* Ensure controls remain absolutely positioned */
+.auth-controls {
+  position: absolute !important;
+  right: 60rem !important;
+  top: 11.5rem !important;
+  margin-left: 0 !important;
+}
+
+.user-controls {
+  position: absolute !important;
+  right: 2rem !important;
+  top: 1rem !important;
+  margin-left: 0 !important;
+}
+
+/* Place subtitle  just below letters */
+.subtitle-overlay {
+  top: 115% !important;
+}
+
+/* Dropdown trigger original padding */
+.dropdown-trigger {
+  padding: 0 !important;
+}
+/* ------------------------------ */
+
+/* ===================================================== */
+/* ZELVO Figma-matching Navbar Styles                    */
+/* ===================================================== */
+
+/* Dark mode styles for Zelvo navbar */
+body:not(.light-mode) .zelvo-nav {
+  background: rgba(20, 20, 32, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Light mode styles for Zelvo navbar */
+body.light-mode .zelvo-nav {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+body:not(.light-mode) .zelvo-brand-icon {
+  color: #3a74d3;
+}
+
+body:not(.light-mode) .zelvo-brand-text {
+  color: #ff3a4c;
+}
+
+body:not(.light-mode) .zelvo-nav-link {
+  color: #ffffff;
+}
+
+body:not(.light-mode) .zelvo-nav-link:hover {
+  color: #ff3a4c;
+}
+
+body:not(.light-mode) .zelvo-nav-link::after {
+  background: #ff3a4c;
+}
+
+body:not(.light-mode) .zelvo-login {
+  color: #ffffff;
+}
+
+body:not(.light-mode) .zelvo-login:hover {
+  color: #ff3a4c;
+}
+
+body:not(.light-mode) .zelvo-signup-btn {
+  background: linear-gradient(135deg, #ff3a4c 0%, #ff7080 100%);
+  color: #ffffff;
+  box-shadow: 0px 4px 14px rgba(255, 58, 76, 0.3);
+}
+
+body:not(.light-mode) .zelvo-signup-btn:hover {
+  background: linear-gradient(135deg, #ff7080 0%, #ff3a4c 100%);
+  box-shadow: 0px 6px 20px rgba(255, 58, 76, 0.4);
+}
+
+body:not(.light-mode) .zelvo-theme-toggle {
+  color: #ffffff;
+}
+
+body:not(.light-mode) .zelvo-theme-toggle:hover {
+  color: #ff3a4c;
+}
+
+.zelvo-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  background: transparent;
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  height: 70px;
+}
+
+.zelvo-header {
+  width: 100%;
+  max-width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Brand */
+.zelvo-brand {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 0.5rem;
+}
+
+.zelvo-brand-icon {
+  color: #007bff;
+  transition: color 0.2s ease;
+}
+
+.zelvo-brand-text {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #333333;
+  transition: color 0.2s ease;
+}
+
+/* Primary nav */
+.zelvo-nav-links {
+  list-style: none;
+  display: flex;
+  gap: 2.3rem;
+  margin: 0;
+  padding: 0;
+}
+
+.zelvo-nav-link {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.95rem;
+  color: #0e0e0e;
+  text-decoration: none;
+  position: relative;
+  transition: color 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.zelvo-nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #3a74d3;
+  transition: width 0.2s ease;
+}
+
+.zelvo-nav-link:hover {
+  color: #3a74d3;
+}
+
+.zelvo-nav-link:hover::after {
+  width: 100%;
+}
+
+.zelvo-nav-link.has-dropdown:hover::after {
+  width: calc(100% - 1rem); /* Account for dropdown arrow space */
+}
+
+/* Actions */
+.zelvo-actions {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.zelvo-login {
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #0e0e0e;
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.zelvo-login:hover {
+  opacity: 0.75;
+}
+
+.zelvo-signup-btn {
+  background: #3a74d3;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 600;
+  font-size: 0.9rem;
+  color: #ffffff;
+  padding: 0.55rem 1.5rem;
+  border-radius: 44px;
+  text-decoration: none;
+  box-shadow: 0px 4px 14px rgba(20, 34, 244, 0.14);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.zelvo-signup-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0px 6px 20px rgba(20, 34, 244, 0.18);
+}
+
+.zelvo-theme-toggle {
+  background: none;
+  border: none;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  color: #000000;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+}
+
+.zelvo-theme-toggle:hover {
+  opacity: 0.7;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .zelvo-nav-links {
+    display: none; /* Future enhancement: hamburger menu */
+  }
+}
+
+@media (min-width: 0) {
+  body {
+    padding-top: 70px;
+  }
+}
+
+.nav-dropdown-arrow {
+  color: #0e0e0e;
+  opacity: 0.7;
+  transition: transform 0.2s ease;
+}
+
+.nav-dropdown-arrow.open {
+  transform: rotate(180deg);
+}
+
+/* Dropdown Menu Styles */
+.nav-item.has-dropdown {
+  position: relative;
+}
+
+.nav-dropdown-menu {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  min-width: 200px;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  box-shadow: 0px 8px 32px rgba(123, 126, 238, 0.15);
+  padding: 0.5rem 0;
+  z-index: 1001;
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: dropdownFadeIn 0.2s ease forwards;
+}
+
+@keyframes dropdownFadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.nav-dropdown-item {
+  display: block;
+  padding: 0.75rem 1.25rem;
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-weight: 500;
+  font-size: 0.9rem;
+  color: #17246d;
+  text-decoration: none;
+  transition: all 0.2s ease;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+}
+
+.nav-dropdown-item:hover {
+  background: rgba(0, 168, 150, 0.1);
+  color: #00A896;
+}
+
+.nav-dropdown-item:first-child {
+  border-radius: 12px 12px 0 0;
+}
+
+.nav-dropdown-item:last-child {
+  border-radius: 0 0 12px 12px;
+}
+
+/* Responsive adjustments for dropdown */
+@media (max-width: 768px) {
+  .nav-dropdown-menu {
+    min-width: 180px;
+    left: -50%;
+  }
+}
